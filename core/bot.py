@@ -27,3 +27,6 @@ class Develop(commands.Bot):
     async def close(self) -> None:
         await self.db.close()
         await super().close()
+
+    async def is_owner(self, user: discord.User) -> bool:
+        return await super().is_owner() or user.id in self.secret["owners"]
