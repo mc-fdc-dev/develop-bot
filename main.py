@@ -8,4 +8,6 @@ intents = discord.Intents.all()
 intents.typing = False
 bot = Develop(command_prefix="$", intents=intents)
 
-bot.run()
+
+if __name__ == "__main__":
+    bot.run(bot.secret["token"])
