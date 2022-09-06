@@ -23,3 +23,7 @@ class Develop(commands.Bot):
 
     async def on_ready(self) -> None:
         print("Start")
+
+    async def close(self) -> None:
+        await self.db.close()
+        await super().close()
