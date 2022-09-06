@@ -2,6 +2,12 @@
 from core import Develop
 
 import discord
+try:
+    from uvloop import install
+except ImportError:
+    pass
+else:
+    install()
 
 
 intents = discord.Intents.all()
