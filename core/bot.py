@@ -5,11 +5,12 @@ from aiosqlite import connect
 
 from os import listdir
 
-from typing import TypedDict
+from typing import TypedDict, List
 
 
 class Secret(TypedDict):
     token: str
+    owners: List[int]
 
 class Develop(commands.Bot):
     with open("secret.json", "r") as f:
