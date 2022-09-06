@@ -1,6 +1,7 @@
 from discord.ext import commands
 import discord
 from orjson import loads
+from aiosqlite import connect
 
 from os import listdir
 
@@ -16,6 +17,7 @@ class Develop(commands.Bot):
 
     async def setup_hook(self) -> None:
         await self.load_extension("jishaku")
+        self.db = await connect("main.db")
         for filename in listdir("cogs"):
             await self.load_extension(f"cogs.{filename[:-2]}")
 
